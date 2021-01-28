@@ -6,9 +6,8 @@ class Staff(models.Model):
     first_name = models.CharField(max_length=30, verbose_name="First name")
     last_name = models.CharField(max_length=30, verbose_name="Last name")
     photo = models.ImageField(null=True, blank=True)
-    phone_number = models.CharField(verbose_name="Phone")
-    team = models.CharField(max_length=50,verbose_name="Team")
-    db_table = models.CharField(max_length=200,verbose_name="Name of table")
+    phone_number = models.CharField(max_length=30, verbose_name="Phone")
+    team = models.CharField(max_length=50, verbose_name="Team")
 
     class Meta:
         db_table = "Staff"
@@ -23,9 +22,8 @@ class Device(models.Model):
     name_of_device = models.CharField(max_length= 50, verbose_name="Device name")
     configuration = models.URLField(verbose_name="Link")
     price = models.IntegerField()
-    paid_by = models.CharField(max_length=50,verbose_name="Buyer")
+    paid_by = models.CharField(max_length=50, verbose_name="Buyer")
     item_number = models.IntegerField()
-    db_table = models.CharField(max_length=200, verbose_name="Name of table")
 
     class Meta:
         db_table = "Device"
@@ -40,7 +38,6 @@ class Delivery(models.Model):
     device = models.OneToOneField(Device, on_delete=models.PROTECT)
     comment = models.TextField(null=True, blank=True)
     delivery_date = models.DateField(auto_now=True)
-    db_table = models.CharField(max_length=200, verbose_name="Name of table")
 
     class Meta:
         db_table = "Delivery"
