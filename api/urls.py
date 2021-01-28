@@ -1,4 +1,3 @@
-
 from api.views import StaffViewSet, DeviceViewSet,DeliveryViewSet
 from rest_framework.routers import DefaultRouter
 
